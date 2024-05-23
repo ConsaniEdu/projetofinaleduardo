@@ -23,7 +23,7 @@ public class UsuarioController extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String url = "/pages/cadastrar.jsp";
+        String url = "/WEB-INF/jsp/cadastrar.jsp";
         RequestDispatcher dispacher = getServletContext().getRequestDispatcher(url);
         dispacher.forward(request, response);
         

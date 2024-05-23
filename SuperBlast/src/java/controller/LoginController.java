@@ -24,7 +24,7 @@ public class LoginController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String url = "/pages/login.jsp";
+        String url = "/WEB-INF/jsp/login.jsp";
         RequestDispatcher dispacher = getServletContext().getRequestDispatcher(url);
         dispacher.forward(request, response);
     }
