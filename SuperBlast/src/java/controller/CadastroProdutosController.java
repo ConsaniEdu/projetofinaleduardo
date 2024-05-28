@@ -27,7 +27,7 @@ import modelBean.ProdutoDTO;
  *
  * @author consa
  */
-@WebServlet(urlPatterns = "/criarprt")
+@WebServlet(urlPatterns = {"/criarprt", "/cad-produtos"})
 @MultipartConfig
 public class CadastroProdutosController extends HttpServlet {
 

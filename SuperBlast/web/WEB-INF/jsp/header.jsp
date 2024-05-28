@@ -15,9 +15,12 @@
         
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             
+            <a href="./HomeController">
             <div class="imagem">
-                <img src="./assets/CLK_HERE-removebg-preview.png" alt="">
+        <img src="./assets/CLK_HERE-removebg-preview.png" alt="Descrição da imagem">
             </div>
+        </a>
+
           
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">

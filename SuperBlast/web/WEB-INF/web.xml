@@ -37,20 +37,8 @@
         <url-pattern>/HomeController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>UsuarioController</servlet-name>
-        <url-pattern>/UsuarioController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LoginController</servlet-name>
-        <url-pattern>/LoginController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ProdutoController</servlet-name>
         <url-pattern>/ProdutoController</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>CadastroProdutosController</servlet-name>
-        <url-pattern>/cad-produtos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

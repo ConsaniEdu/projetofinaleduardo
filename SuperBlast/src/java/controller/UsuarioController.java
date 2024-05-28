@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import modelBean.UsuarioDTO;
 import modelDAO.UsuarioDAO;
 
-@WebServlet(urlPatterns = {"/cadastrar"})
+@WebServlet(urlPatterns = {"/cadastrar", "/yrt"})
 @MultipartConfig
 
 public class UsuarioController extends HttpServlet {
