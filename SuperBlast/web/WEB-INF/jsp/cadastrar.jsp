@@ -11,7 +11,7 @@
 
     <body>
         <form action="cadastrar" enctype="multipart/form-data" method="post" class="cadastro">
-            <h1> Login </h1>
+            <h1> Cadastrar-se </h1>
             <img src="./assets/CLK_HERE-removebg-preview.png" alt="">
             <div class="form-group">
               <label for="exampleInputEmail1">Endereco de email</label>

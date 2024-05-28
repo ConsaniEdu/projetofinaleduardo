@@ -1,0 +1,42 @@
+.bg-light{
+    background-color: #8E44FC !important;
+}
+
+.imagem img{
+    height: 70px;
+    width: 80px;
+    margin: 0px;
+    margin-right: 15px;
+    padding: 0px;
+}
+
+.procurar{
+    background-color:#FC97F2;
+    border-color: #FC97F2;
+    border-radius: 20px;
+    border-width: 2px;
+    border-style: solid; 
+    color: white;
+    width: 100px;
+    height: 40px;
+    font-weight: 700;
+    transition: 0.5s;
+}
+
+.procurar:hover{
+    background-color:white; 
+    border-color: #FC44EA;
+    border-width: 2px;
+    color: #FC44EA;
+    font-weight: 700;
+    
+}
+
+ .nav-link{
+    color: white !important;
+}
+
+.form-inline input{
+    border-radius: 20px;
+    border: none;
+}
