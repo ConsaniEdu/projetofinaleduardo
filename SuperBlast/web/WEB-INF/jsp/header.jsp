@@ -17,7 +17,7 @@
             
             <a href="./HomeController">
             <div class="imagem">
-        <img src="./assets/CLK_HERE-removebg-preview.png" alt="Descrição da imagem">
+        <img src="./assets/CLKHERE.png" alt="Descrição da imagem">
             </div>
         </a>
 

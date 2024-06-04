@@ -1,5 +1,5 @@
 .bg-light{
-    background-color: #8E44FC !important;
+    background-color: #011D33 !important;
 }
 
 .imagem img{
@@ -11,12 +11,12 @@
 }
 
 .procurar{
-    background-color:#FC97F2;
-    border-color: #FC97F2;
+    background-color:#8CAFCA;
+    border-color: #8CAFCA;
     border-radius: 20px;
     border-width: 2px;
     border-style: solid; 
-    color: white;
+    color: #E6EEF4;
     width: 100px;
     height: 40px;
     font-weight: 700;
@@ -24,10 +24,10 @@
 }
 
 .procurar:hover{
-    background-color:white; 
-    border-color: #FC44EA;
+    background-color:#E6EEF4; 
+    border-color: #8CAFCA;
     border-width: 2px;
-    color: #FC44EA;
+    color: #8CAFCA;
     font-weight: 700;
     
 }

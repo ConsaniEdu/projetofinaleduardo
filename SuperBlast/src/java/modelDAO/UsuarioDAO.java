@@ -25,8 +25,12 @@ public class UsuarioDAO {
     UsuarioDTO objUsuarioDTO = new UsuarioDTO();
     
     
-    public void Login(UsuarioDTO objUsuarioDTO){
-            
+    public boolean Login(UsuarioDTO objUsuarioDTO){
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        boolean isValidUser = false;
+        
         try {
             conn = Conexao.conectar();
             stmt = conn.prepareStatement("SELECT id_usuario FROM usuario WHERE email = ? AND senha = ?");
@@ -37,17 +41,23 @@ public class UsuarioDAO {
             
             if (rs.next()){
                 objUsuarioDTO.setId_usuario(rs.getInt("id_usuario"));                
-            
+                isValidUser = true;
             }
           
-            rs.close();
-            stmt.close();
-            conn.close();
-            
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Erro ao validar usuário: " + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (stmt != null) stmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         
-        
+        return isValidUser;
     }
     
     public void CriarUsuario(UsuarioDTO objUsuarioDTO){

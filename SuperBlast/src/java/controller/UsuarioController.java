@@ -62,7 +62,10 @@ public class UsuarioController extends HttpServlet {
         objUsuarioDTO.setTelefone(request.getParameter("telefone"));
         objUsuarioDTO.setCpf(request.getParameter("Cpf"));
         
+        
         objUsuarioDAO.CriarUsuario(objUsuarioDTO);
+        
+        response.sendRedirect("./HomeController");
         
         PrintWriter out = response.getWriter();
         out.println("<script type=\"text/javascript\">");

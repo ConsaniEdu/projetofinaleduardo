@@ -16,21 +16,8 @@ public class ProdutoDTO {
     private String descricao;
     private float preco;
     private int quantidade;
-    private byte[] imagem;
+    private String imagem;
     private int categoria;
-
-    public ProdutoDTO() {
-    }
-
-    public ProdutoDTO(int id_produto, String nome_produto, String descricao, float preco, int quantidade, byte[] imagem, int categoria) {
-        this.id_produto = id_produto;
-        this.nome_produto = nome_produto;
-        this.descricao = descricao;
-        this.preco = preco;
-        this.quantidade = quantidade;
-        this.imagem = imagem;
-        this.categoria = categoria;
-    }
 
     public int getId_produto() {
         return id_produto;
@@ -72,11 +59,11 @@ public class ProdutoDTO {
         this.quantidade = quantidade;
     }
 
-    public byte[] getImagem() {
+    public String getImagem() {
         return imagem;
     }
 
-    public void setImagem(byte[] imagem) {
+    public void setImagem(String imagem) {
         this.imagem = imagem;
     }
 
@@ -88,5 +75,18 @@ public class ProdutoDTO {
         this.categoria = categoria;
     }
 
-    
+    public ProdutoDTO(int id_produto, String nome_produto, String descricao, float preco, int quantidade, String imagem, int categoria) {
+        this.id_produto = id_produto;
+        this.nome_produto = nome_produto;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.quantidade = quantidade;
+        this.imagem = imagem;
+        this.categoria = categoria;
+    }
+
+    public ProdutoDTO() {
+    }
+
+
 }

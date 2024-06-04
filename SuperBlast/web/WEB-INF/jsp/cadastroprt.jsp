@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -10,7 +11,7 @@
         
         <jsp:include page="header.jsp"></jsp:include>
         <main>
-        <form class="cadastrar">                      
+            <form action="criarprt" enctype="multipart/form-data" method="post" class="cadastrar">                      
                 <h1>Cadastro de produtos</h1>
                 
                 <div class="imagem">
@@ -18,24 +19,31 @@
                 </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Nome do produto</label>
-                <input type="text" class="form-control" name="nome" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                <input type="text" class="form-control" name="nome" id="nome" aria-describedby="emailHelp" placeholder="">
             </div>
-                        <div class="form-group">
-                <label for="exampleInputEmail1">Descrição do produto</label>
-                <input type="text" class="form-control" name="nome" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
-            </div>            <div class="form-group">
+                              <div class="form-group">
                 <label for="exampleInputEmail1">Preço</label>
-                <input type="text" class="form-control" name="nome" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                <input type="text" class="form-control" name="preco" id="preco" aria-describedby="emailHelp" placeholder="">
             </div>            <div class="form-group">
-                <label for="exampleInputEmail1">Quantidade</label>
-                <input type="text" class="form-control" name="nome" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="">
+                <label for="exampl<eInputEmail1">Quantidade</label>
+                <input type="text" class="form-control" name="quantidade" id="quantidade" aria-describedby="emailHelp" placeholder="">
+            </div>            <div class="form-group">
+                <label for="exampl eInputEmail1">Descrição</label>
+                <input type="text" class="form-control" name="descricao" id="descricao" aria-describedby="emailHelp" placeholder="">
             </div>  
+            <div class="input-img"> 
+                    <label>Escolha uma imagem</label>
+                    <input type="file" name="imagem">
+                </div>
+            
+            
             <div class="input-group mb-3">
                 <select class="custom-select" id="inputGroupSelect02">
-                    <option selected>Escolher...</option>
-                    <option value="1">Um</option>
-                    <option value="2">Dois</option>
-                    <option value="3">Três</option>
+                    <option selected>Escolher Categoria</option>
+                <c:forEach items="${categoria}" var="categorias">
+                    <option value="${categorias.id_categoria}">${categorias.nome_categoria}</option>
+                    </c:forEach>
+                    
                 </select>
                 <div class="input-group-append">
                     <label class="input-group-text" for="inputGroupSelect02">Opções</label>

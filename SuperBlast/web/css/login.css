@@ -5,11 +5,11 @@ body{
     align-items: center;
     justify-content: space-around;
     margin-top: 185px;
-    background-color: #fc447bd7;
+    background-color: #E6EEF4;
 }
 
 .logar{
-    background-color: #8E44FC;
+    background-color: #011D33;
    width: 520px;
    height: 400px;
    display: flex;
@@ -24,16 +24,11 @@ body{
 form h1{
     font-family: sans-serif;
     font-weight: bold;
-    color: black;
+    color: #8CAFCA;
  
 }
 
-.login label{
-    font-family: sans-serif;
-    color: black;
-    font-weight: bold;
-    
-}
+
 
 .logar img{
        height: 100px;
@@ -45,7 +40,7 @@ form h1{
 
 .logar label{
     font-family: sans-serif;
-    color: black;
+    color: #8CAFCA;
     font-weight: bold;
 }
 
@@ -65,11 +60,12 @@ form h1{
 }
 
 .logar button{
-    background-color:#FC97F2;
-    border-color: #FC97F2;
+    background-color:#8CAFCA;
+    border-color: #8CAFCA;
     border-radius: 20px;
     border-width: 2px;
-    color: white;
+    border-style: solid; 
+    color: #E6EEF4;
     width: 150px;
     height: 40px;
     font-weight: 700;
@@ -77,9 +73,9 @@ form h1{
 }
 
 .logar button:hover{
-    background-color:white; 
-    border-color: #FC44EA;
+   background-color:#E6EEF4; 
+    border-color: #8CAFCA;
     border-width: 2px;
-    color: #FC44EA;
+    color: #8CAFCA;
     font-weight: 700;
 }

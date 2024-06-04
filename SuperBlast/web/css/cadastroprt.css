@@ -4,7 +4,7 @@ body main{
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: #fc447bd7;
+    background-color: #E6EEF4;
     height: 91vh;
 }
 
@@ -54,8 +54,8 @@ form h1{
 }
 
 .cadastrar button{
-    background-color:#FC97F2;
-    border-color: #FC97F2;
+    background-color:#8CAFCA;
+    border-color: #8CAFCA;
     border-radius: 12px;
     border-width: 2px;
     color: white;
@@ -66,10 +66,10 @@ form h1{
 }
 
 .cadastrar button:hover{
-    background-color:white; 
-    border-color: #FC44EA;
+    background-color:#E6EEF4; 
+    border-color: #E6EEF4;
     border-width: 2px;
-    color: #FC44EA;
+    color: #8CAFCA;
     font-weight: 700;
 }
 

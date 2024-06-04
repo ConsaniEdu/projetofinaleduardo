@@ -5,18 +5,18 @@ body{
     align-items: center;
     justify-content: space-around;
     margin-top: 185px;
-    background-color: #fc447bd7;
+    background-color: #E6EEF4;
 }
 
 form h1{
     font-family: sans-serif;
     font-weight: bold;
-    color: black;
+    color: #8CAFCA;
  
 }
 
 .cadastro{
-   background-color: #8E44FC;
+   background-color: #011D33;
    width: 600px;
    height: 700px;
    display: flex;
@@ -38,7 +38,7 @@ form h1{
 
 .cadastro label{
     font-family: sans-serif;
-    color: black;
+    color: #8CAFCA;
     font-weight: bold;
     
 }
@@ -51,11 +51,12 @@ form h1{
 }
 
 .cadastro button{
-    background-color:#FC97F2;
-    border-color: #FC97F2;
+    background-color:#8CAFCA;
+    border-color: #8CAFCA;
     border-radius: 20px;
     border-width: 2px;
-    color: white;
+    border-style: solid; 
+    color: #E6EEF4;
     width: 150px;
     height: 40px;
     font-weight: 700;
@@ -63,9 +64,10 @@ form h1{
 }
 
 .cadastro button:hover{
-    background-color:white; 
-    border-color: #FC44EA;
+   background-color:#E6EEF4; 
+    border-color: #8CAFCA;
     border-width: 2px;
-    color: #FC44EA;
+    color: #8CAFCA;
     font-weight: 700;
+    
 }
