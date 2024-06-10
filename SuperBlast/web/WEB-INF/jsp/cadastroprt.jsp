@@ -38,8 +38,8 @@
             
             
             <div class="input-group mb-3">
-                <select class="custom-select" id="inputGroupSelect02">
-                    <option selected>Escolher Categoria</option>
+                <select class="custom-select" id="inputGroupSelect02" name="categoria">
+                    
                 <c:forEach items="${categoria}" var="categorias">
                     <option value="${categorias.id_categoria}">${categorias.nome_categoria}</option>
                     </c:forEach>

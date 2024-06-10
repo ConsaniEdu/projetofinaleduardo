@@ -32,7 +32,7 @@
                 </li>
                 
                 <li class="nav-item">
-                  <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a>
+                  <a class="nav-link" href="./CarrinhoController" tabindex="-1" aria-disabled="true"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a>
                 </li>
               </ul>
               <form class="form-inline">

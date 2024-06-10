@@ -21,7 +21,7 @@ public class HomeController extends HttpServlet {
     ProdutoDAO objProdutoDAO = new ProdutoDAO();
     
     
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+    /*protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
        List<ProdutoDTO> produtos = objProdutoDAO.listarProdutos();
         request.setAttribute("produtos", produtos);
@@ -29,7 +29,17 @@ public class HomeController extends HttpServlet {
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
         
-    }
+    }*/
+    
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+   List<ProdutoDTO> produtos = objProdutoDAO.listarProdutos();
+    request.setAttribute("produtos", produtos);
+    String url = "/WEB-INF/jsp/index.jsp";
+    RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+    dispatcher.forward(request, response);
+}
+
 
    
     @Override

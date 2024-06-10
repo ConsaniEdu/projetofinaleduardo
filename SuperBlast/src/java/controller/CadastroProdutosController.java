@@ -68,8 +68,10 @@ public class CadastroProdutosController extends HttpServlet {
 
         try {
             String categoriaStr = request.getParameter("categoria");
+            System.out.println(categoriaStr);
             if (categoriaStr != null && !categoriaStr.isEmpty()) {
                 objProdutoDTO.setCategoria(Integer.parseInt(categoriaStr));
+                System.out.println(objProdutoDTO.getCategoria());
             }
 
             String precoStr = request.getParameter("preco");

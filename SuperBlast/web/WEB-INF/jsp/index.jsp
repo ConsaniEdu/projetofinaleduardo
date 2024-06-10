@@ -48,12 +48,12 @@
             <div class="container">
                 <h1 class="TI">Listar</h1>
                 <div class="container-produto">
-                    <c:forEach var="produto" items="${produto}">
+                    <c:forEach var="produto" items="${produtos}">
                         <div class="card" style="width: 18rem;">
-                            <img src="..." class="card-img-top" alt="...">
+                            <img src="${produto.imagem}" class="card-img-top" alt="...">
                             <div class="card-body">
                               <h5 class="card-title">${produto.nome_produto}</h5>
-                              <p class="card-text">Categoria ${produto.fk_categoria}</p>
+                              <p class="card-text">Categoria ${produto.categoria}</p>
                               <p class="card-text">valor: ${produto.preco}</p>
                               <p class="card-text">Descrição ${produto.descricao}</p>
                               <p class="card-text"></p>

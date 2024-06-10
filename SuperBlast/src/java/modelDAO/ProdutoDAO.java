@@ -17,12 +17,13 @@ public class ProdutoDAO {
 
         try {
             conn = Conexao.conectar();
-            stmt = conn.prepareStatement("INSERT INTO produto (nome_produto, descricao, preco, quantidade, imagem) VALUES (?, ?, ?, ?, ?)");
+            stmt = conn.prepareStatement("INSERT INTO produto (nome_produto, descricao, categoria, preco, quantidade, imagem) VALUES (?, ?, ?, ?, ?, ?)");
             stmt.setString(1, objProdutoDTO.getNome_produto());
             stmt.setString(2, objProdutoDTO.getDescricao());
-            stmt.setFloat(3, objProdutoDTO.getPreco());
-            stmt.setInt(4, objProdutoDTO.getQuantidade());
-            stmt.setString(5, objProdutoDTO.getImagem());
+            stmt.setInt(3, objProdutoDTO.getCategoria());
+            stmt.setFloat(4, objProdutoDTO.getPreco());
+            stmt.setInt(5, objProdutoDTO.getQuantidade());
+            stmt.setString(6, objProdutoDTO.getImagem());
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -88,6 +89,7 @@ public class ProdutoDAO {
                 ProdutoDTO objProdutoDTO = new ProdutoDTO();
                 objProdutoDTO.setNome_produto(rs.getString("nome_produto"));
                 objProdutoDTO.setDescricao(rs.getString("descricao"));
+                objProdutoDTO.setCategoria(rs.getInt("categoria"));
                 objProdutoDTO.setPreco(rs.getFloat("preco"));
                 objProdutoDTO.setQuantidade(rs.getInt("quantidade"));
                 objProdutoDTO.setImagem(rs.getString("imagem"));
@@ -125,6 +127,7 @@ public class ProdutoDAO {
                 ProdutoDTO objProdutoDTO = new ProdutoDTO();
                 objProdutoDTO.setId_produto(rs.getInt("id_produto"));
                 objProdutoDTO.setNome_produto(rs.getString("nome_produto"));
+                objProdutoDTO.setCategoria(rs.getInt("categoria"));
                 objProdutoDTO.setDescricao(rs.getString("descricao"));
                 objProdutoDTO.setPreco(rs.getFloat("preco"));
                 objProdutoDTO.setQuantidade(rs.getInt("quantidade"));

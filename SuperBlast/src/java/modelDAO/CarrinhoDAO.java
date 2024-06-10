@@ -47,19 +47,24 @@ public class CarrinhoDAO {
     }
     
     public void adicionarCarrinho(CarrinhoDTO objCarrinhoDTO){
-    
-    
-        try {
-            
-    conn = Conexao.conectar();
-    stmt = conn.prepareStatement("INSERT INTO carrinho (fk_produto, fk_usuario) VALUES (?, ?)");
-            
-            
-            stmt.setInt();
-        } catch (Exception e) {
-        }
-    
+    try {
+        conn = Conexao.conectar();
+        stmt = conn.prepareStatement("INSERT INTO carrinho (fk_produto, fk_usuario) VALUES (?, ?)");
+        
+       
+        stmt.setInt(1, objCarrinhoDTO.getFk_produto());
+        stmt.setInt(2, objCarrinhoDTO.getFk_usuario());
+        
+      
+        stmt.executeUpdate();
+        
+       
+        conn.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
     }
+}
+
     
     
 }
