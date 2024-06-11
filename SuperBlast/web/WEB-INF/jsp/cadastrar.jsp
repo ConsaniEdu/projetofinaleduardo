@@ -10,7 +10,7 @@
     </head>
 
     <body>
-        <form action="cadastrar" enctype="multipart/form-data" method="post" class="cadastro">
+        <form id="cadastroForm" action="cadastrar" enctype="multipart/form-data" method="post" class="cadastro">
             <h1> Cadastrar-se </h1>
             <img src="./assets/CLK_HERE-removebg-preview.png" alt="">
             <div class="form-group">
@@ -29,7 +29,7 @@
                
               </div>
               <div class="form-group">
-                <label for="exampleInputEmail1">Numero de Telefone</label>
+                <label for="telefone">Numero de Telefone</label>
                 <input type="tel" name="telefone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Digite seu telefone...">
                 
               </div>
@@ -40,6 +40,17 @@
             <button type="submit" class="btn btn-primary">Cadastrar-se</button>
             <a href="./logar">Ir para login</a>
           </form>
+        
+        <script>
+    document.getElementById("cadastroForm").addEventListener("submit", function(event) {
+        var cpfInput = document.getElementById("exampleInputPassword1");
+        var cpf = cpfInput.value.trim().replace(/\D/g, '');
+        if (cpf.length !== 11) {
+            event.preventDefault(); 
+            alert("Por favor, digite um CPF valido.");
+        }
+    });
+</script>
           
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

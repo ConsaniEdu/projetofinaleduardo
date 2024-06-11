@@ -5,16 +5,18 @@
  */
 package modelBean;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author Eduardo Consani
  */
 public class ProdutoDTO {
-    
+       
     private int id_produto;
     private String nome_produto;
     private String descricao;
-    private float preco;
+    private BigDecimal preco; // Usando BigDecimal para representar preços
     private int quantidade;
     private String imagem;
     private int categoria;
@@ -43,11 +45,11 @@ public class ProdutoDTO {
         this.descricao = descricao;
     }
 
-    public float getPreco() {
+    public BigDecimal getPreco() {
         return preco;
     }
 
-    public void setPreco(float preco) {
+    public void setPreco(BigDecimal preco) {
         this.preco = preco;
     }
 
@@ -75,7 +77,7 @@ public class ProdutoDTO {
         this.categoria = categoria;
     }
 
-    public ProdutoDTO(int id_produto, String nome_produto, String descricao, float preco, int quantidade, String imagem, int categoria) {
+    public ProdutoDTO(int id_produto, String nome_produto, String descricao, BigDecimal preco, int quantidade, String imagem, int categoria) {
         this.id_produto = id_produto;
         this.nome_produto = nome_produto;
         this.descricao = descricao;
@@ -87,6 +89,5 @@ public class ProdutoDTO {
 
     public ProdutoDTO() {
     }
-
-
 }
+

@@ -15,7 +15,7 @@
                 <h1>Cadastro de produtos</h1>
                 
                 <div class="imagem">
-                <img src="./assets/CLK_HERE-removebg-preview.png" alt="">
+                <img src="./assets/CLKHERE.png" alt="">
                 </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Nome do produto</label>
@@ -32,12 +32,12 @@
                 <input type="text" class="form-control" name="descricao" id="descricao" aria-describedby="emailHelp" placeholder="">
             </div>  
             <div class="input-img"> 
-                    <label>Escolha uma imagem</label>
+                    <label>Escolha a imagem do produto</label>
                     <input type="file" name="imagem">
                 </div>
             
             
-            <div class="input-group mb-3">
+            <div class="input-group">
                 <select class="custom-select" id="inputGroupSelect02" name="categoria">
                     
                 <c:forEach items="${categoria}" var="categorias">
@@ -46,7 +46,7 @@
                     
                 </select>
                 <div class="input-group-append">
-                    <label class="input-group-text" for="inputGroupSelect02">Opções</label>
+                    <label class="input-group-text" for="inputGroupSelect02">Categoria</label>
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Cadastrar</button>

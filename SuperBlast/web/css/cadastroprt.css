@@ -11,7 +11,7 @@ body main{
 
 
 .cadastrar{
-    background-color: #8E44FC;
+    background-color: #011D33;
    width: 520px;
    height: 600px;
    display: flex;
@@ -26,7 +26,7 @@ body main{
 form h1{
     font-family: sans-serif;
     font-weight: bold;
-    color: black;
+    color: white;
  
 }
 
@@ -41,7 +41,7 @@ form h1{
 
 .cadastrar label{
     font-family: sans-serif;
-    color: black;
+    color: white;
     font-weight: bold;
     margin-bottom: 0;
 }
@@ -63,14 +63,27 @@ form h1{
     height: 40px;
     font-weight: 700;
     transition: 0.5s;
+    margin-top: 6px;
 }
 
 .cadastrar button:hover{
     background-color:#E6EEF4; 
-    border-color: #E6EEF4;
+    border-color: #8CAFCA;
     border-width: 2px;
     color: #8CAFCA;
     font-weight: 700;
 }
 
+
+.input-img input{
+    background-color: #E6EEF4;
+    
+}
+
+.input-group-append label{
+    background-color: #E6EEF4;
+    color: #8CAFCA;
+    
+    
+}
 

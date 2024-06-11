@@ -21,7 +21,7 @@ public class ProdutoDAO {
             stmt.setString(1, objProdutoDTO.getNome_produto());
             stmt.setString(2, objProdutoDTO.getDescricao());
             stmt.setInt(3, objProdutoDTO.getCategoria());
-            stmt.setFloat(4, objProdutoDTO.getPreco());
+            stmt.setBigDecimal(4, objProdutoDTO.getPreco());
             stmt.setInt(5, objProdutoDTO.getQuantidade());
             stmt.setString(6, objProdutoDTO.getImagem());
 
@@ -90,7 +90,7 @@ public class ProdutoDAO {
                 objProdutoDTO.setNome_produto(rs.getString("nome_produto"));
                 objProdutoDTO.setDescricao(rs.getString("descricao"));
                 objProdutoDTO.setCategoria(rs.getInt("categoria"));
-                objProdutoDTO.setPreco(rs.getFloat("preco"));
+                objProdutoDTO.setPreco(rs.getBigDecimal("preco"));
                 objProdutoDTO.setQuantidade(rs.getInt("quantidade"));
                 objProdutoDTO.setImagem(rs.getString("imagem"));
 
@@ -129,7 +129,7 @@ public class ProdutoDAO {
                 objProdutoDTO.setNome_produto(rs.getString("nome_produto"));
                 objProdutoDTO.setCategoria(rs.getInt("categoria"));
                 objProdutoDTO.setDescricao(rs.getString("descricao"));
-                objProdutoDTO.setPreco(rs.getFloat("preco"));
+                objProdutoDTO.setPreco(rs.getBigDecimal("preco"));
                 objProdutoDTO.setQuantidade(rs.getInt("quantidade"));
 
                 resultadoBusca.add(objProdutoDTO);

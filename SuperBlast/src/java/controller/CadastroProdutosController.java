@@ -8,6 +8,7 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.math.BigDecimal;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -76,8 +77,9 @@ public class CadastroProdutosController extends HttpServlet {
 
             String precoStr = request.getParameter("preco");
             if (precoStr != null && !precoStr.isEmpty()) {
-                objProdutoDTO.setPreco(Float.parseFloat(precoStr));
-            }
+    BigDecimal preco = new BigDecimal(precoStr);
+    objProdutoDTO.setPreco(preco);
+}
 
             String quantidadeStr = request.getParameter("quantidade");
             if (quantidadeStr != null && !quantidadeStr.isEmpty()) {
