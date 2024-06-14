@@ -43,33 +43,32 @@
 </div>
             </main>
             
-                
-        
-        <div class="container-jogos">
-            <div class="container">
-                <h1 class="TI">Listar</h1>
+            <div class="cabeçalho" style="text-align: center">
+        <h1>Listar</h1>
+            </div>
+            <div class="container">  
                 <div class="container-produto">
                     <c:forEach var="produto" items="${produtos}">
-                        <div class="card" style="width: 18rem;">
-                            <img src="${produto.imagem}" class="card-img-top" alt="...">
+                        <div class="card" style="width: 350px;">                           
+                            <img src="${produto.imagem}" class="card-img-top" alt="...">                           
                             <div class="card-body">
                               <h5 class="card-title">${produto.nome_produto}</h5>
                               <p class="card-text">Categoria ${produto.categoria}</p>
                               <p class="card-text">valor: ${produto.preco}</p>
                               <p class="card-text">Descrição ${produto.descricao}</p>
                               <p class="card-text"></p>
-                              <a href="#" class="btn btn-primary">Comprar</a>
+                              <form class="form-inline">
+                              <button type="submit"  class="btn">adicionar ao carrinho</button>
+                              </form>
                             </div>
                         </div>
                     </c:forEach>
                 </div>
             </div>
-        </div>
+       
+                <jsp:include page="Footer.jsp"></jsp:include>              
                               
-                              
-                              <a href ="./LoginController">login</a>
-            <a href="./cadastrar">cadastro</a>
-            
+                                     
             
             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

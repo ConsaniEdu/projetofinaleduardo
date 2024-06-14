@@ -77,7 +77,7 @@ public class CadastroProdutosController extends HttpServlet {
 
             String precoStr = request.getParameter("preco");
             if (precoStr != null && !precoStr.isEmpty()) {
-    BigDecimal preco = new BigDecimal(precoStr);
+    float preco = new Float(precoStr);
     objProdutoDTO.setPreco(preco);
 }
 

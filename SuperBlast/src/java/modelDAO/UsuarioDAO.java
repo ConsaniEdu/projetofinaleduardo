@@ -1,8 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Classe responsável pela interação com a tabela usuario do banco de dados
  */
+
 package modelDAO;
 
 import conexao.Conexao;
@@ -13,18 +12,15 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import modelBean.UsuarioDTO;
 
-/**
- *
- * @author Eduardo Consani
- */
 public class UsuarioDAO {
     
+    // Atributos para conexão com o banco de dados e manipulação de resultados
     Connection conn = null;
     PreparedStatement stmt = null;
     ResultSet rs = null;
     UsuarioDTO objUsuarioDTO = new UsuarioDTO();
     
-    
+    // Método para realizar o login do usuário
     public boolean Login(UsuarioDTO objUsuarioDTO){
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -32,13 +28,17 @@ public class UsuarioDAO {
         boolean isValidUser = false;
         
         try {
+            // Estabelece a conexão com o banco de dados
             conn = Conexao.conectar();
+            // Prepara a query SQL para selecionar o ID do usuário com base no email e senha fornecidos
             stmt = conn.prepareStatement("SELECT id_usuario FROM usuario WHERE email = ? AND senha = ?");
             stmt.setString(1, objUsuarioDTO.getEmail());
             stmt.setString(2, objUsuarioDTO.getSenha());
             
+            // Executa a query
             rs = stmt.executeQuery();
             
+            // Se houver um resultado, o usuário é válido
             if (rs.next()){
                 objUsuarioDTO.setId_usuario(rs.getInt("id_usuario"));                
                 isValidUser = true;
@@ -46,8 +46,10 @@ public class UsuarioDAO {
           
         } catch (SQLException e) {
             e.printStackTrace();
+            // Exibe uma mensagem de erro em caso de falha na validação do usuário
             JOptionPane.showMessageDialog(null, "Erro ao validar usuário: " + e.getMessage());
         } finally {
+            // Fecha a conexão com o banco de dados
             try {
                 if (rs != null) rs.close();
                 if (stmt != null) stmt.close();
@@ -60,26 +62,33 @@ public class UsuarioDAO {
         return isValidUser;
     }
     
+    // Método para criar um novo usuário
     public void CriarUsuario(UsuarioDTO objUsuarioDTO){
         
         try {
+            // Estabelece a conexão com o banco de dados
             conn = Conexao.conectar();
+            // Prepara a query SQL para inserir um novo usuário na tabela
             stmt = conn.prepareStatement("INSERT INTO usuario (nome_usuario, senha, email, telefone, cpf) VALUES (?, ?, ? , ?, ?)");
             
+            // Define os parâmetros da query com base no objeto UsuarioDTO fornecido
             stmt.setString(1, objUsuarioDTO.getNome_usuario());
             stmt.setString(2, objUsuarioDTO.getSenha());
             stmt.setString(3, objUsuarioDTO.getEmail());
             stmt.setString(4, objUsuarioDTO.getTelefone());
             stmt.setString(5, objUsuarioDTO.getCpf());
             
+            // Executa a query de inserção
             stmt.executeUpdate();
             
+            // Fecha a conexão com o banco de dados
             conn.close();
             stmt.close();
             
         } catch (SQLException e) {
            e.printStackTrace();
-            JOptionPane.showMessageDialog(null,"USUARIODAO CREATE" + e);
+            // Exibe uma mensagem de erro em caso de falha na criação do usuário
+            JOptionPane.showMessageDialog(null,"Erro ao criar usuário: " + e);
         }
         
     }

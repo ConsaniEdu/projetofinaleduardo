@@ -16,10 +16,23 @@ public class ProdutoDTO {
     private int id_produto;
     private String nome_produto;
     private String descricao;
-    private BigDecimal preco; // Usando BigDecimal para representar preços
+    private float preco; 
     private int quantidade;
     private String imagem;
     private int categoria;
+    private String nome_categoria;
+
+    public String getNome_categoria() {
+        return nome_categoria;
+    }
+
+    public void setNome_categoria(String nome_categoria) {
+        this.nome_categoria = nome_categoria;
+    }
+
+    public ProdutoDTO(String nome_categoria) {
+        this.nome_categoria = nome_categoria;
+    }
 
     public int getId_produto() {
         return id_produto;
@@ -45,11 +58,11 @@ public class ProdutoDTO {
         this.descricao = descricao;
     }
 
-    public BigDecimal getPreco() {
+    public float getPreco() {
         return preco;
     }
 
-    public void setPreco(BigDecimal preco) {
+    public void setPreco(float preco) {
         this.preco = preco;
     }
 
@@ -77,7 +90,7 @@ public class ProdutoDTO {
         this.categoria = categoria;
     }
 
-    public ProdutoDTO(int id_produto, String nome_produto, String descricao, BigDecimal preco, int quantidade, String imagem, int categoria) {
+    public ProdutoDTO(int id_produto, String nome_produto, String descricao, float preco, int quantidade, String imagem, int categoria) {
         this.id_produto = id_produto;
         this.nome_produto = nome_produto;
         this.descricao = descricao;
