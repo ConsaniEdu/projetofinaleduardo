@@ -71,3 +71,11 @@ form h1{
     font-weight: 700;
     
 }
+
+@media screen and (min-width: 400px) and (max-width: 500px) {
+    .cadastro {
+        background-color: crimson;
+        /* Outros estilos podem ser adicionados aqui */
+    }
+}
+

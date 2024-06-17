@@ -43,8 +43,15 @@
 </div>
             </main>
             
+            <div class="cabeçalho-con" style="text-align: center">
+                <h1>Destaques</h1>
+                
+    </div>
+            
+            <hr>
+            
             <div class="cabeçalho" style="text-align: center">
-        <h1>Listar</h1>
+        <h1>Mais Vendidos</h1>
             </div>
             <div class="container">  
                 <div class="container-produto">
@@ -66,7 +73,7 @@
                 </div>
             </div>
        
-                <jsp:include page="Footer.jsp"></jsp:include>              
+                            
                               
                                      
             

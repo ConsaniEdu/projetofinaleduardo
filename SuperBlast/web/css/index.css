@@ -21,42 +21,67 @@ body main{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 20px; /* Espaçamento entre os cards */
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    padding: 20px; /* Espaçamento interno */
+    background-color: #E6EEF4; /* Cor de fundo */
+    border: none;
 }
 
 .card {
-    width: calc(25% - 20px); 
-    margin-bottom: 20px; 
-     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
-     border-style: none;
-       background-color: #8cafca;
+    width: calc(25% - 20px); /* Calcula a largura do card com margem */
+    margin-bottom: 20px; /* Espaçamento inferior entre os cards */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+    border-radius: 15px; /* Bordas arredondadas */
+    overflow: hidden; /* Para garantir que a sombra não ultrapasse as bordas */
+    background-color: #ffffff; /* Cor de fundo do card */
+    transition: transform 0.3s ease-in-out; /* Efeito de transição suave */
+    border: none;
 }
 
-.card-body{
-    background-color:#547FA0;
-    color: #E6EEF4;
-    
+.card:hover {
+    transform: translateY(-5px); /* Efeito de levantar o card ao passar o mouse */
 }
 
-.card img{
-    padding: 4px;
-    background-color: #547FA0;   
+.card-body {
+    background-color: #547FA0; /* Cor de fundo do corpo do card */
+    color: #E6EEF4; /* Cor do texto */
+    padding: 15px; /* Espaçamento interno */
 }
 
-.card button {
-    background-color: #8CAFCA;
+.card img {
+    width: 100%; /* Imagem ocupa toda a largura do card */
+    border-top-left-radius: 15px; /* Bordas arredondadas superiores */
+    border-top-right-radius: 15px;
+}
+
+.card h5.card-title {
+    font-size: 1.25rem; /* Tamanho da fonte do título */
+    margin-bottom: 0.5rem; /* Espaçamento inferior */
+}
+
+.card p.card-text {
+    font-size: 0.9rem; /* Tamanho da fonte do texto do corpo */
+    margin-bottom: 0.5rem; /* Espaçamento inferior */
+}
+
+.card button.btn {
+    background-color: #8CAFCA; 
     border: 2px solid #8CAFCA;
-    border-radius: 20px;
+    border-radius: 20px; 
     color: #E6EEF4;
-    width: 185px;
-    height: 40px;
-    font-weight: 700;
-    transition: background-color 0.5s, border-color 0.5s, color 0.5s;
+    width: 100%; 
+    height: 40px; 
+    font-size: 0.9rem; 
+    font-weight: 700; 
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s; 
 }
 
-.card button:hover {
-    background-color: #E6EEF4;
-    border-color: #8CAFCA;
-    color: #8CAFCA;
+.card button.btn:hover {
+    background-color: #E6EEF4; /* Cor de fundo ao passar o mouse */
+    border-color: #8CAFCA; /* Cor da borda ao passar o mouse */
+    color: #8CAFCA; /* Cor do texto ao passar o mouse */
 }
+
 
 

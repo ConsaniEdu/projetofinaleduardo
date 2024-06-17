@@ -63,34 +63,49 @@ public class UsuarioDAO {
     }
     
     // Método para criar um novo usuário
-    public void CriarUsuario(UsuarioDTO objUsuarioDTO){
-        
+    public void CriarUsuario(UsuarioDTO objUsuarioDTO) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+
         try {
             // Estabelece a conexão com o banco de dados
             conn = Conexao.conectar();
-            // Prepara a query SQL para inserir um novo usuário na tabela
-            stmt = conn.prepareStatement("INSERT INTO usuario (nome_usuario, senha, email, telefone, cpf) VALUES (?, ?, ? , ?, ?)");
             
+            // Prepara a query SQL para inserir um novo usuário na tabela
+            String sql = "INSERT INTO usuario (nome_usuario, senha, email, telefone, cpf) VALUES (?, ?, ?, ?, ?)";
+            stmt = conn.prepareStatement(sql);
+
             // Define os parâmetros da query com base no objeto UsuarioDTO fornecido
             stmt.setString(1, objUsuarioDTO.getNome_usuario());
             stmt.setString(2, objUsuarioDTO.getSenha());
             stmt.setString(3, objUsuarioDTO.getEmail());
             stmt.setString(4, objUsuarioDTO.getTelefone());
             stmt.setString(5, objUsuarioDTO.getCpf());
-            
+
             // Executa a query de inserção
             stmt.executeUpdate();
-            
-            // Fecha a conexão com o banco de dados
-            conn.close();
-            stmt.close();
-            
+
         } catch (SQLException e) {
-           e.printStackTrace();
-            // Exibe uma mensagem de erro em caso de falha na criação do usuário
-            JOptionPane.showMessageDialog(null,"Erro ao criar usuário: " + e);
+           
+            e.printStackTrace();
+            throw new RuntimeException("Erro ao criar usuário: " + e.getMessage(), e); // Lança uma exceção para o caller tratar
+
+        } finally {
+          
+            try {
+                if (stmt != null) {
+                    stmt.close();
+                }
+                if (conn != null) {
+                    conn.close();
+                }
+            } catch (SQLException e) {
+                // Em caso de erro ao fechar a conexão, imprime o stack trace (ou faça log adequado)
+                e.printStackTrace();
+                // Não lança exceção aqui para evitar mascarar a exceção original
+            }
         }
-        
     }
-    
 }
+    
+
