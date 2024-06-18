@@ -10,8 +10,9 @@
         
      <main>
        
-         <h1></h1>
-         
+         <div class="cab">
+         <h2>Meu Carrinho</h2>
+         </div>
          
      </main>
     </body>

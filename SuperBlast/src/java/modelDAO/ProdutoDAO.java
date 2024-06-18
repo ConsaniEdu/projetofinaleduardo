@@ -46,48 +46,51 @@ public class ProdutoDAO {
 
     // Método para buscar produtos com base em um termo de pesquisa
     public List<ProdutoDTO> buscarProdutos(String buscarProduto) {
-        // Inicializa uma lista para armazenar os produtos encontrados
-        List<ProdutoDTO> buscar = new ArrayList<>();
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
+    // Inicializa uma lista para armazenar os produtos encontrados
+    List<ProdutoDTO> buscar = new ArrayList<>();
+    Connection conn = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
 
+    try {
+        // Abre a conexão com o banco de dados
+        conn = Conexao.conectar();
+        // Prepara a query SQL para buscar produtos com base no termo de pesquisa
+        stmt = conn.prepareStatement("SELECT * FROM produto WHERE nome_produto LIKE ? OR descricao LIKE ?");
+        // Define o termo de pesquisa com base no argumento fornecido
+        String busca = "%" + buscarProduto + "%";
+        stmt.setString(1, busca);
+        stmt.setString(2, busca);
+
+        // Executa a query e obtém o resultado
+        rs = stmt.executeQuery();
+
+        // Itera sobre o resultado e cria objetos ProdutoDTO com os dados encontrados
+        while (rs.next()) {
+            ProdutoDTO objProdutoDTO = new ProdutoDTO();
+            objProdutoDTO.setNome_produto(rs.getString("nome_produto"));
+            objProdutoDTO.setDescricao(rs.getString("descricao"));
+            objProdutoDTO.setCategoria(rs.getInt("categoria")); // Adiciona a categoria, se aplicável
+            objProdutoDTO.setPreco(rs.getFloat("preco")); // Adiciona o preço, se aplicável
+            objProdutoDTO.setImagem(rs.getString("imagem")); // Adiciona a imagem
+            buscar.add(objProdutoDTO);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        // Fecha a conexão com o banco de dados
         try {
-            // Abre a conexão com o banco de dados
-            conn = Conexao.conectar();
-            // Prepara a query SQL para buscar produtos com base no termo de pesquisa
-            stmt = conn.prepareStatement("SELECT * FROM produto WHERE nome_produto LIKE ? OR descricao LIKE ?");
-            // Define o termo de pesquisa com base no argumento fornecido
-            String busca = "%" + buscarProduto + "%";
-            stmt.setString(1, busca);
-            stmt.setString(2, busca);
-
-            // Executa a query e obtém o resultado
-            rs = stmt.executeQuery();
-
-            // Itera sobre o resultado e cria objetos ProdutoDTO com os dados encontrados
-            while (rs.next()) {
-                ProdutoDTO objProdutoDTO = new ProdutoDTO();
-                objProdutoDTO.setNome_produto(rs.getString("nome_produto"));
-                objProdutoDTO.setDescricao(rs.getString("descricao"));
-                buscar.add(objProdutoDTO);
-            }
+            if (rs != null) rs.close();
+            if (stmt != null) stmt.close();
+            if (conn != null) conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            // Fecha a conexão com o banco de dados
-            try {
-                if (rs != null) rs.close();
-                if (stmt != null) stmt.close();
-                if (conn != null) conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
         }
-
-        // Retorna a lista de produtos encontrados
-        return buscar;
     }
+
+    // Retorna a lista de produtos encontrados
+    return buscar;
+}
 
     // Método para listar os produtos (limitado a 10)
     public List<ProdutoDTO> listarProdutos() {

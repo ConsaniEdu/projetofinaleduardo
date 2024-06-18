@@ -35,10 +35,11 @@
                   <a class="nav-link" href="./CarrinhoController" tabindex="-1" aria-disabled="true"><i class="fa-solid fa-cart-shopping"></i> Carrinho</a>
                 </li>
               </ul>
-              <form class="form-inline" action="buscar-produtos" method="get">
-                 <input class="form-control mr-sm-2" name="busca" type="search" placeholder="Procurar" aria-label="Search">
-                    <button class="procurar" type="submit">Procurar</button>
-            </form>
+              <form class="form-inline" action="HomeController" method="get">
+    <input class="form-control mr-sm-2" name="busca" type="search" placeholder="Procurar" aria-label="Search">
+    <button class="procurar" type="submit">Procurar</button>
+</form>
+
             </div>
           </nav>
     </body>
