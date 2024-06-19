@@ -1,4 +1,78 @@
 body{
     min-height: 100vh;
     min-width: 100vh;
+    background-color: #E6EEF4;
 }
+header h2{
+    text-align: center;
+}
+
+
+main {
+    display: flex !important;
+    justify-content: space-around;
+}
+
+
+
+.container-prts{
+    background-color: #547FA0;
+    height: 500px;
+    width: 500px;
+    color:  #E6EEF4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px gray;
+    padding: 20px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between
+    
+}
+
+.container-conf {
+    background-color: #547FA0;
+    height: 200px;
+    width: 300px;
+    color: #E6EEF4;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px gray;
+    padding: 20px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container-conf .order-text h4 {
+    text-align: center;
+    margin: 10px 0; 
+    font-size: 1.25em;
+    font-weight: 600; 
+}
+
+.container-conf .btn {
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+}
+
+.container-conf .btn button {
+    width: 75%;
+    height: 40px;
+    background-color: #8CAFCA;
+    border: 2px solid #8CAFCA;
+    color: #E6EEF4;
+    font-weight: 700;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
+    border-radius: 5px;
+    cursor: pointer; 
+}
+
+.container-conf .btn button:hover {
+    background-color: #E6EEF4;
+    border-color: #8CAFCA;
+    color: #8CAFCA;
+}
+
+
+
+

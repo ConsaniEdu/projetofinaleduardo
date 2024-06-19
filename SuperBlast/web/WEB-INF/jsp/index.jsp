@@ -13,7 +13,7 @@
     <body>
         <jsp:include page="header.jsp"></jsp:include>
 
-        <!-- Adiciona a variável que guarda o contexto da aplicação -->
+        
         <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 
         <main>
@@ -50,6 +50,8 @@
         </div>
         
         <hr>
+        
+        //aonde aparece os itens
         
         <div class="cabeçalho" style="text-align: center">
             <h1>Mais Vendidos</h1>
