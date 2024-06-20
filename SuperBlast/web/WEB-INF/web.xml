@@ -49,6 +49,10 @@
         <url-pattern>/HomeController</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/addCarrinho</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ProdutoController</servlet-name>
         <url-pattern>/ProdutoController</url-pattern>
     </servlet-mapping>

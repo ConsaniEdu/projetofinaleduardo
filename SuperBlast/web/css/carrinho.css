@@ -17,6 +17,7 @@ main {
 
 .container-prts{
     background-color: #547FA0;
+    overflow-y: scroll;
     height: 500px;
     width: 500px;
     color:  #E6EEF4;

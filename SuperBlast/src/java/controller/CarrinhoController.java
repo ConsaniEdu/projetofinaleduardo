@@ -1,12 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,13 +22,17 @@ public class CarrinhoController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String url = "/WEB-INF/jsp/carrinho.jsp";
+        
+        
+        
+        List<ProdutoDTO>  objProdutoDTOs = objProdutoDAO.listarCarrinho();
+        
+        request.setAttribute("produtos", objProdutoDTOs);
+        request.setAttribute("carrinho", objProdutoDTOs);
+        
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
         
-        
-        List<ProdutoDTO>  objProdutoDTOs = objProdutoDAO.listarProdutos();
-        
-        request.setAttribute("produtos", objProdutoDTOs);
     }
 
     
@@ -43,10 +44,28 @@ public class CarrinhoController extends HttpServlet {
 
     
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+   protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+      
+        String produtoId = request.getParameter("produtoId");
+
+       
+        List<String> objCarrinhoDTOs = (List<String>) request.getSession().getAttribute("carrinho");
+
+        
+        if (objCarrinhoDTOs == null) {
+            objCarrinhoDTOs = new ArrayList<>();
+            request.getSession().setAttribute("carrinho", objCarrinhoDTOs);
+        }
+
+       
+       objCarrinhoDTOs.add(produtoId);
+
+        
+        response.sendRedirect(request.getHeader("referer"));
     }
+
 
     
     @Override

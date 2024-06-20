@@ -7,7 +7,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import modelBean.CarrinhoDTO;
 import modelBean.ProdutoDTO;
+import modelBean.UsuarioDTO;
+import modelDAO.CarrinhoDAO;
 import modelDAO.ProdutoDAO;
 
 public class HomeController extends HttpServlet {
@@ -41,6 +44,16 @@ public class HomeController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String url = request.getServletPath();
+        if(url.equals("/addCarrinho")){
+            int idProduto = Integer.parseInt(request.getParameter("produtoId"));
+            CarrinhoDAO dao = new CarrinhoDAO();
+            CarrinhoDTO c = new CarrinhoDTO();
+            c.setFk_produto(idProduto);
+            c.setFk_usuario(UsuarioDTO.getIdUsuarioStatico());
+            
+            dao.adicionarCarrinho(c);
+        }
         processRequest(request, response);
     }
 }

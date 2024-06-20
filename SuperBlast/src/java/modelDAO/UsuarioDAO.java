@@ -39,7 +39,8 @@ public class UsuarioDAO {
             
            
             if (rs.next()){
-                objUsuarioDTO.setId_usuario(rs.getInt("id_usuario"));                
+                objUsuarioDTO.setId_usuario(rs.getInt("id_usuario"));  
+                UsuarioDTO.setIdUsuarioStatico(rs.getInt("id_usuario"));
                 autenticacao = true;
             }
           

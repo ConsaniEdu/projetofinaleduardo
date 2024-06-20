@@ -11,6 +11,7 @@ package modelBean;
  */
 public class UsuarioDTO {
         private int id_usuario;
+        private static int idUsuarioStatico;
         private String nome_usuario;
         private String senha;
         private String email;
@@ -19,6 +20,16 @@ public class UsuarioDTO {
 
     public UsuarioDTO() {
     }
+
+    public static int getIdUsuarioStatico() {
+        return idUsuarioStatico;
+    }
+
+    public static void setIdUsuarioStatico(int idUsuarioStatico) {
+        UsuarioDTO.idUsuarioStatico = idUsuarioStatico;
+    }
+    
+    
 
     public UsuarioDTO(int id_usuario, String nome_usuario, String senha, String email, String telefone, String cpf) {
         this.id_usuario = id_usuario;

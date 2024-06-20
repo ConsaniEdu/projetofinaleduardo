@@ -65,6 +65,8 @@ public class CarrinhoDAO {
         try {
             // Estabelece a conexão com o banco de dados
             conn = Conexao.conectar();
+            System.out.println("Produto> " + objCarrinhoDTO.getFk_produto());
+            System.out.println("Usuario> " + objCarrinhoDTO.getFk_usuario());
             // Prepara a query SQL para inserir um novo item no carrinho
             stmt = conn.prepareStatement("INSERT INTO carrinho (fk_produto, fk_usuario) VALUES (?, ?)");
         
@@ -76,6 +78,7 @@ public class CarrinhoDAO {
             stmt.executeUpdate();
         
             // Fecha a conexão com o banco de dados
+            stmt.close();
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();

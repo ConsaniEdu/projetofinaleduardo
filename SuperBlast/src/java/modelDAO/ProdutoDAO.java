@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import modelBean.ProdutoDTO;
+import modelBean.UsuarioDTO;
 
 public class ProdutoDAO {
 
@@ -37,27 +38,26 @@ public class ProdutoDAO {
         } 
     }
     
-    public void deletarProduto(int id){
-        
+   public void deletarProduto(int id_produto) {
     Connection conn = null;
     PreparedStatement stmt = null;
+
+    try {
+        conn = Conexao.conectar();
+        stmt = conn.prepareStatement("DELETE FROM produto WHERE id_produto = ?");
+        stmt.setInt(1, id_produto);
+
+        stmt.executeUpdate();
+
+        conn.close();
+        stmt.close();
+    } catch (SQLException e) {
+        e.printStackTrace();
+       
+    } 
     
-        try {
-            conn = Conexao.conectar();
-            stmt = conn.prepareStatement("DELETE FROM produto WHERE id_produto = ?");
-            stmt.setInt(1, id);
-            
-            stmt.executeUpdate();
-            
-            stmt.close();
-            conn.close();
-            
-            
-            
-        } catch (Exception e) {
-        }
-    
-    }
+}
+
 
     
     public List<ProdutoDTO> buscarProdutos(String buscarProduto) {
@@ -117,6 +117,7 @@ public class ProdutoDAO {
 
             while (rs.next()) {
                 ProdutoDTO objProdutoDTO = new ProdutoDTO();
+                objProdutoDTO.setId_produto(rs.getInt("id_produto"));
                 objProdutoDTO.setNome_produto(rs.getString("nome_produto"));
                 objProdutoDTO.setDescricao(rs.getString("descricao"));
                 objProdutoDTO.setCategoria(rs.getInt("categoria"));
@@ -126,7 +127,7 @@ public class ProdutoDAO {
 
                 objProdutoDTOs.add(objProdutoDTO);
             }
-            // fecha a conexao com o banco
+            
             rs.close();
             stmt.close();
             conn.close();
@@ -134,7 +135,73 @@ public class ProdutoDAO {
             e.printStackTrace();
         } 
 
-            // retorno os produtos encontrados
+           
+        return objProdutoDTOs;
+    }
+    
+     public ProdutoDTO readyById(int id) {
+
+        ProdutoDTO objProdutoDTO = new ProdutoDTO();
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = Conexao.conectar();
+            stmt = conn.prepareStatement("SELECT * FROM produto WHERE id_produto = ?");
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                objProdutoDTO.setId_produto(rs.getInt("id_produto"));
+                objProdutoDTO.setNome_produto(rs.getString("nome_produto"));
+                objProdutoDTO.setDescricao(rs.getString("descricao"));
+                objProdutoDTO.setCategoria(rs.getInt("categoria"));
+                objProdutoDTO.setPreco(rs.getFloat("preco"));
+                objProdutoDTO.setQuantidade(rs.getInt("quantidade"));
+                objProdutoDTO.setImagem(rs.getString("imagem"));
+            }
+            
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } 
+
+           
+        return objProdutoDTO;
+    }
+    
+    public List<ProdutoDTO> listarCarrinho() {
+
+        List<ProdutoDTO> objProdutoDTOs = new ArrayList<>();
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+
+        try {
+            conn = Conexao.conectar();
+            stmt = conn.prepareStatement("SELECT * FROM carrinho WHERE fk_usuario = ?");
+            stmt.setInt(1, UsuarioDTO.getIdUsuarioStatico());
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                ProdutoDTO objProdutoDTO = new ProdutoDTO();
+                ProdutoDAO daoP = new ProdutoDAO();
+                objProdutoDTO =  daoP.readyById(rs.getInt("fk_produto"));
+                System.out.println("Nome: " + objProdutoDTO.getNome_produto());
+                objProdutoDTOs.add(objProdutoDTO);
+            }
+            
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } 
+
+           
         return objProdutoDTOs;
     }
 

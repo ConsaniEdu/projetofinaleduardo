@@ -13,25 +13,26 @@ import modelDAO.ProdutoDAO;
 
 @WebServlet(urlPatterns = {"/gerenciamento"})
 public class GerenciamentoController extends HttpServlet {
-    
-    ProdutoDTO objProdutoDTO = new ProdutoDTO();
-    ProdutoDAO objProdutoDAO = new ProdutoDAO();
+
+    private ProdutoDAO objProdutoDAO = new ProdutoDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         String deleta = request.getParameter("deleta");
-        if(deleta != null && deleta.equals("deletar")){
-        String idproduto = request.getParameter("idproduto");
-        
-        objProdutoDAO.deletarProduto(Integer.parseInt(idproduto));
-        
+        if (deleta != null && deleta.equals("deletar")) {
+            String id_produto = request.getParameter("id_produto"); 
+            if (id_produto != null) {
+                objProdutoDAO.deletarProduto(Integer.parseInt(id_produto));
+               
+                response.sendRedirect(request.getContextPath() + "/gerenciamento");
+                return; 
+            }
         }
-        
+
         List<ProdutoDTO> objProdutoDTOs = objProdutoDAO.listarProdutos();
-        
         request.setAttribute("produtos", objProdutoDTOs);
-        
+
         String url = "WEB-INF/jsp/gerenciamentoprt.jsp";
         RequestDispatcher dispatcher = request.getRequestDispatcher(url);
         dispatcher.forward(request, response);
@@ -46,11 +47,11 @@ public class GerenciamentoController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+        processRequest(request, response); 
     }
 
     @Override
     public String getServletInfo() {
-        return "Short description";
+        return "Gerenciamento de Produtos";
     }
 }
