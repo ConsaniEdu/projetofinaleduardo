@@ -11,16 +11,16 @@ import modelBean.CarrinhoDTO;
 
 public class CarrinhoDAO {
     
-    // Atributos para conexão com o banco de dados
+    
     Connection conn = null;
     PreparedStatement stmt = null;
     ResultSet rs = null;
     
     
-    // Método para listar os itens do carrinho
+    // funcao para listar os itens do carrinho
     public List <CarrinhoDTO> ListarCarrinho(){
         
-        // Lista para armazenar os itens do carrinho
+        // armazenar os itens do carrinho na lista
         List <CarrinhoDTO> objCategoriaDTO = new ArrayList<>();
     
         try {

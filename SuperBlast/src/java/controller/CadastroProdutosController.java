@@ -26,19 +26,28 @@ import modelDAO.ProdutoDAO;
 import modelBean.CategoriaDTO;
 import modelBean.ProdutoDTO;
 
+//defino as urls
+
 @WebServlet(urlPatterns = {"/criarprt", "/cad-produtos"})
 @MultipartConfig
 public class CadastroProdutosController extends HttpServlet {
 
+    //acionando os objetos de acesso e de tranferencia do produto
+    
     ProdutoDTO objProduto = new ProdutoDTO();
     ProdutoDAO objProdutoDao = new ProdutoDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        //obtendo a lista de categorias
+        
         CategoriaDAO categoria = new CategoriaDAO();
         List<CategoriaDTO> categorias = categoria.listarCategorias();
         request.setAttribute("categoria", categorias);
         String nextPage = "/WEB-INF/jsp/cadastroprt.jsp";
+        
+            //encaminha a requisao para a JSP
+        
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(nextPage);
         dispatcher.forward(request, response);
     }
@@ -64,6 +73,8 @@ public class CadastroProdutosController extends HttpServlet {
 
         // Cria um novo objeto de produto com os parâmetros fornecidos na requisição
         ProdutoDTO objProdutoDTO = new ProdutoDTO();
+        
+        //definindo os atributos do parametro para passar ao formulario
 
         objProdutoDTO.setNome_produto(request.getParameter("nome"));
 
@@ -87,7 +98,6 @@ public class CadastroProdutosController extends HttpServlet {
             }
         } catch (NumberFormatException e) {
             e.printStackTrace();
-            // Trate o erro conforme necessário (por exemplo, enviando uma mensagem de erro para o usuário)
         }
 
         objProdutoDTO.setDescricao(request.getParameter("descricao"));
@@ -117,7 +127,7 @@ public class CadastroProdutosController extends HttpServlet {
             objProdutoDTO.setImagem(null);
         }
 
-        // Salva o produto com o caminho da imagem no banco de dados
+        // Salva o produto e tbm redireciona a JSP principal
         ProdutoDAO objProdutoDAO = new ProdutoDAO();
         objProdutoDAO.cadastrarProduto(objProdutoDTO);
         response.sendRedirect("./HomeController");

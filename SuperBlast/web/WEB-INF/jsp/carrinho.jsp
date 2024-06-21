@@ -16,14 +16,13 @@
     <main>
         <div class="container-prts">
             <div class="container-product">
-                <c:forEach var="p" items="${carrinho}">
+                <c:forEach var="prt" items="${carrinho}">
                     <div class="card" style="width: 350px;">
-                        <img src="${pageContext.request.contextPath}/${produto.imagem}" class="card-img-top" alt="${p.nome_produto}">
+                        <img src="${pageContext.request.contextPath}/${prt.imagem}" class="card-img-top" alt="${prt.nome_produto}">
                         <div class="card-body">
-                            <h5 class="card-title">${p.nome_produto}</h5>
-                            <p class="card-text">Categoria: ${p.categoria}</p>
-                            <p class="card-text">Valor: R$ ${p.preco}</p>
-                            <p class="card-text">Descrição: ${p.descricao}</p>
+                            <h5 class="card-title">${prt.nome_produto}</h5>
+                            <p class="card-text">Valor: R$ ${prt.preco}</p>
+                            <p class="card-text">Descrição: ${prt.descricao}</p>
                         </div>
                     </div>
                 </c:forEach>

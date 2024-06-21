@@ -51,8 +51,6 @@
 
     <hr>
 
-    //aonde aparece os itens
-
     <div class="cabeçalho" style="text-align: center">
         <h1>Mais Vendidos</h1>
     </div>
@@ -63,7 +61,6 @@
                     <img src="${contextPath}/${produto.imagem}" class="card-img-top" alt="${produto.nome_produto}">                           
                     <div class="card-body">
                         <h5 class="card-title">${produto.nome_produto}</h5>
-                        <p class="card-text">Categoria: ${produto.categoria}</p>
                         <p class="card-text">Valor: ${produto.preco}</p>
                         <p class="card-text">Descrição: ${produto.descricao}</p>
                         <form class="form-inline" action="addCarrinho" method="post">

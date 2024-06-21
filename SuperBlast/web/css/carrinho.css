@@ -1,33 +1,65 @@
-body{
+body {
     min-height: 100vh;
     min-width: 100vh;
     background-color: #E6EEF4;
-}
-header h2{
-    text-align: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
 }
 
+header h2 {
+    text-align: center;
+    margin: 20px 0;
+}
 
 main {
     display: flex !important;
     justify-content: space-around;
+    padding: 20px;
 }
 
-
-
-.container-prts{
+.container-prts {
     background-color: #547FA0;
     overflow-y: scroll;
     height: 500px;
     width: 500px;
-    color:  #E6EEF4;
+    color: #E6EEF4;
     border-radius: 10px;
     box-shadow: 0 4px 8px gray;
     padding: 20px;
     display: flex;
-    flex-direction:column;
-    justify-content: space-between
-    
+    flex-direction: column;
+    gap: 20px;
+}
+
+.container-product .card {
+    background-color: #E6EEF4;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px gray;
+    color: #547FA0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+
+.container-product .card img {
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.container-product .card-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.container-product .card-text {
+    font-size: 1em;
+    margin-bottom: 5px;
+    text-align: center;
 }
 
 .container-conf {
@@ -37,7 +69,7 @@ main {
     color: #E6EEF4;
     border-radius: 10px;
     box-shadow: 0 4px 8px gray;
-    padding: 20px; 
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -45,15 +77,15 @@ main {
 
 .container-conf .order-text h4 {
     text-align: center;
-    margin: 10px 0; 
+    margin: 10px 0;
     font-size: 1.25em;
-    font-weight: 600; 
+    font-weight: 600;
 }
 
 .container-conf .btn {
     width: 100%;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
 }
 
 .container-conf .btn button {
@@ -63,9 +95,9 @@ main {
     border: 2px solid #8CAFCA;
     color: #E6EEF4;
     font-weight: 700;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s; 
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     border-radius: 5px;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
 .container-conf .btn button:hover {
@@ -73,7 +105,3 @@ main {
     border-color: #8CAFCA;
     color: #8CAFCA;
 }
-
-
-
-

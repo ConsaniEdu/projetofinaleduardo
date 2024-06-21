@@ -13,7 +13,8 @@ import modelDAO.ProdutoDAO;
 
 @WebServlet(urlPatterns = {"/gerenciamento"})
 public class GerenciamentoController extends HttpServlet {
-
+    
+        //acessando os dados do produto
     private ProdutoDAO objProdutoDAO = new ProdutoDAO();
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
