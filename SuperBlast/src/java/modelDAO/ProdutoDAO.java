@@ -190,6 +190,7 @@ public class ProdutoDAO {
                 ProdutoDTO objProdutoDTO = new ProdutoDTO();
                 ProdutoDAO daoP = new ProdutoDAO();
                 objProdutoDTO =  daoP.readyById(rs.getInt("fk_produto"));
+                
                 System.out.println("Nome: " + objProdutoDTO.getNome_produto());
                 objProdutoDTOs.add(objProdutoDTO);
             }

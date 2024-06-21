@@ -14,7 +14,11 @@
     <main>
         <form action="logar" id="login" enctype="multipart/form-data" method="post" class="logar">
             <h1> Login </h1>
-            <img src="./assets/CLKHERE.png" alt="">
+           <a href="./HomeController">
+            <div class="imagem">
+        <img src="./assets/CLKHERE.png" alt="Descrição da imagem">
+            </div>
+        </a>
             <div class="form-group1">
               <label for="exampleInputEmail1">Endereço de email</label>
               <input type="email" id="usuario" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email">

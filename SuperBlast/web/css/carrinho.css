@@ -38,41 +38,53 @@ main {
     box-shadow: 0 4px 8px gray;
     color: #547FA0;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 15px;
+    flex-direction: row !important;
+    margin: 20px;
 }
 
 .container-product .card img {
     border-radius: 10px;
-    max-width: 100%;
+    max-width: 117; 
     height: auto;
-    margin-bottom: 15px;
+    margin-right: 15px; 
+}
+.card{
+    flex-direction: row;
+}
+
+.container-product .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
 }
 
 .container-product .card-title {
     font-size: 1.5em;
     margin-bottom: 10px;
-    text-align: center;
+    text-align: left; 
 }
 
 .container-product .card-text {
     font-size: 1em;
     margin-bottom: 5px;
-    text-align: center;
+    text-align: left; 
 }
+
 
 .container-conf {
     background-color: #547FA0;
-    height: 200px;
-    width: 300px;
+    height: 211px;
+    width: 290px;
     color: #E6EEF4;
     border-radius: 10px;
     box-shadow: 0 4px 8px gray;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content:  center;
+    align-items: center;
 }
 
 .container-conf .order-text h4 {
@@ -83,7 +95,7 @@ main {
 }
 
 .container-conf .btn {
-    width: 100%;
+    width: 120%;
     display: flex;
     justify-content: center;
 }

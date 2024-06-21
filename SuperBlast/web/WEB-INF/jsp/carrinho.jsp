@@ -34,11 +34,14 @@
                 <h4>Pedido</h4>
             </div>
             <label for="preco">Preço Total</label>
+            <p> R$ ${precoTotal}</p>
             <hr>
             <div class="btn">
                 <button>Confirmar Pedido</button>
             </div>
         </div>
+            
+            
     </main>
 </body>
 </html>

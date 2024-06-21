@@ -20,9 +20,10 @@
                             <p class="card-text">Categoria: ${produto.categoria}</p>
                             <p class="card-text">Valor: ${produto.preco}</p>
                             <p class="card-text">Descrição: ${produto.descricao}</p>
-                            <form class="form-inline" action="CarrinhoController" method="post">
-                                <input type="hidden" name="produtoId" value="${produto.id_produto}" />
-                                <button type="submit" class="btn">Adicionar ao carrinho</button>
+                            <form class="form-inline" action="gerenciamento" method="post">
+                                <input type="hidden" name="deleta" value="deletar"/>
+                                <input type="hideen" name="id_produto" value="${produto.id_produto}"/>
+                                <button type="submit" class="btn">excluir Produto</button>
                             </form>
 
                         </div>

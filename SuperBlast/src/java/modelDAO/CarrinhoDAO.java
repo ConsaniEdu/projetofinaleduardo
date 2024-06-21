@@ -24,15 +24,15 @@ public class CarrinhoDAO {
         List <CarrinhoDTO> objCategoriaDTO = new ArrayList<>();
     
         try {
-            // Estabelece a conexão com o banco de dados
+            // conecta com banco
             conn = Conexao.conectar();
-            // Prepara a query SQL para selecionar todos os itens do carrinho
+            // prepara a query que vai selecionar todos os itens do carrinho
             stmt = conn.prepareStatement("SELECT * FROM carrinho");
             
-            // Executa a query
+            // executa a query
             rs = stmt.executeQuery();
             
-            // Itera sobre o resultado e cria objetos CarrinhoDTO com os dados dos itens do carrinho
+            // cria um carrinho com os itens do carrinho
             while(rs.next()){
                 CarrinhoDTO carrinhoDTO = new CarrinhoDTO();
                 
@@ -47,7 +47,7 @@ public class CarrinhoDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
-            // Fecha a conexão com o banco de dados
+            // Feecha conexao
             try {
                 if (rs != null) rs.close();
                 if (stmt != null) stmt.close();
@@ -60,24 +60,24 @@ public class CarrinhoDAO {
         return objCategoriaDTO;
     }
     
-    // Método para adicionar um novo item ao carrinho
+    ///funcao para adicionar um item no carrinho
     public void adicionarCarrinho(CarrinhoDTO objCarrinhoDTO){
         try {
-            // Estabelece a conexão com o banco de dados
+            // fazendo conexao com o banco
             conn = Conexao.conectar();
             System.out.println("Produto> " + objCarrinhoDTO.getFk_produto());
             System.out.println("Usuario> " + objCarrinhoDTO.getFk_usuario());
-            // Prepara a query SQL para inserir um novo item no carrinho
+            // preparando a query
             stmt = conn.prepareStatement("INSERT INTO carrinho (fk_produto, fk_usuario) VALUES (?, ?)");
         
-            // Define os parâmetros da query com base no objeto CarrinhoDTO fornecido
+            // definindo os parametros necessarios da query
             stmt.setInt(1, objCarrinhoDTO.getFk_produto());
             stmt.setInt(2, objCarrinhoDTO.getFk_usuario());
         
-            // Executa a query de inserção
+            //executa a query
             stmt.executeUpdate();
         
-            // Fecha a conexão com o banco de dados
+            // fecha onexao com o banco de dados
             stmt.close();
             conn.close();
         } catch (SQLException e) {

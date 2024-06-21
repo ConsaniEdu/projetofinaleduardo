@@ -36,7 +36,17 @@ public class CarrinhoController extends HttpServlet {
         request.setAttribute("produtos", objProdutoDTOs);
         request.setAttribute("carrinho", objProdutoDTOs);
         
+        
         //encaminnando a requisição e tambem a resposta para a pagina usando a url
+        
+        float precoTotal = 0;
+        
+        for(int i = 0; i< objProdutoDTOs.size(); i++){
+            precoTotal += objProdutoDTOs.get(i).getPreco();
+           
+        }
+        
+            request.setAttribute("precoTotal", precoTotal);
         
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
         dispatcher.forward(request, response);
